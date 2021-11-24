@@ -23,6 +23,7 @@ func min(n1 int, n2 int) int {
 	}
 	return n1
 }
+
 func max(n1 int, n2 int) int {
 	if n1 < n2 {
 		return n2
