@@ -2,22 +2,22 @@ package main
 
 func maxSubArray(nums []int) int {
 
-	max := nums[0]
+	mx := nums[0]
 	sum := nums[0]
 
 	for i := 1; i < len(nums); i++ {
 
-		if sum < 0 {
-			sum = nums[i]
-		} else {
-			sum += nums[i]
-		}
-
-		if max < sum {
-			max = sum
-		}
+		sum = max(sum+nums[i], nums[i])
+		mx = max(sum, mx)
 
 	}
 
-	return max
+	return mx
+}
+
+func max(n1 int, n2 int) int {
+	if n1 > n2 {
+		return n1
+	}
+	return n2
 }
