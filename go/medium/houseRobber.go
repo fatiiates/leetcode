@@ -2,8 +2,6 @@ package main
 
 import "fmt"
 
-var global [][]int
-
 func rob(nums []int) int {
 
 	l := len(nums)
