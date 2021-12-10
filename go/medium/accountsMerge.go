@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -102,9 +101,4 @@ func accountsMerge(accounts [][]string) [][]string {
 	}
 
 	return mergedAccounts
-}
-
-func main() {
-
-	fmt.Println(combine(20, 10))
 }

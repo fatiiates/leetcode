@@ -1,10 +1,12 @@
+package main
+
 func minCostToMoveChips(position []int) int {
 
 	odds := 0
 	evens := 0
 	l := len(position)
 	for i := 0; i < l; i++ {
-		if position[i] & 1  == 1 {
+		if position[i]&1 == 1 {
 			odds++
 		} else {
 			evens++

@@ -23,7 +23,6 @@ func primeMultiplier(x int) int {
 			return i
 		}
 	}
-	return x
 }
 
 func main() {
