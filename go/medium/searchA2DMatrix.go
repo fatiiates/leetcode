@@ -53,7 +53,6 @@ func max(n1 int, n2 int) int {
 }
 
 func main() {
-
 	fmt.Println(searchMatrix([][]int{
 		{-1},
 		{9, 11, 16, 20},
