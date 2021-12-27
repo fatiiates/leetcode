@@ -12,7 +12,7 @@ func searchMatrix(matrix [][]int, target int) bool {
 
 func findRow(nums *[][]int, s int, e int, t *int) int {
 	p := (e - s) / 2
-	// fmt.Println(s,e)
+
 	if e < s {
 		return e
 	}
@@ -56,7 +56,7 @@ func main() {
 
 	fmt.Println(searchMatrix([][]int{
 		{-1},
-		// {9, 11, 16, 20},
-		// {23, 30, 34, 35},
+		{9, 11, 16, 20},
+		{23, 30, 34, 35},
 	}, -1))
 }
