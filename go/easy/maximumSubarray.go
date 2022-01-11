@@ -2,27 +2,26 @@ package main
 
 import "fmt"
 
-func maxProduct(nums []int) int {
+var mx int = 0
 
-	mx := nums[0]
-	mn := nums[0]
-	res := nums[0]
+func maxSubArray(nums []int) int {
+	mx = nums[0]
+	return helper(&nums, 0, len(nums)-1)
+}
 
-	l := len(nums)
-	for i := 1; i < l; i++ {
-
-		tmp := mx
-
-		mx = max(max(mx*nums[i], mn*nums[i]), nums[i])
-		mn = min(min(tmp*nums[i], mn*nums[i]), nums[i])
-
-		if mx > res {
-			res = mx
-		}
+func helper(nums *[]int, l, r int) int {
+	if l == r {
+		return (*nums)[l]
 	}
 
-	return res
+	p := (r - l) / 2
+	sLeft := helper(nums, l, p)
+	sRight := helper(nums, p+1, r)
 
+	sLeft = max(sLeft+sRight, sRight)
+	mx = max(sLeft, mx)
+
+	return mx
 }
 
 func max(n1 int, n2 int) int {
@@ -32,13 +31,6 @@ func max(n1 int, n2 int) int {
 	return n2
 }
 
-func min(n1 int, n2 int) int {
-	if n1 < n2 {
-		return n1
-	}
-	return n2
-}
-
 func main() {
-	fmt.Println([]int{-2, 3, -4})
+	fmt.Println(maxSubArray([]int{5, 4, -1, 7, 8}))
 }
