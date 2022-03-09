@@ -1,2 +1,2 @@
 # leetcode
-My golang exercises on LeetCode questions
+My algorithm exercises on LeetCode(generally) questions
