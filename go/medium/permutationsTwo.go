@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 type Node struct {
@@ -9,13 +10,17 @@ type Node struct {
 	nums []int
 }
 
-func permute(nums []int) [][]int {
+func permuteUnique(nums []int) [][]int {
 	res := [][]int{}
 	if len(nums) == 1 {
 		return [][]int{{1}}
 	}
+	sort.Ints(nums)
 	bt := []Node{}
 	for i := 0; i < len(nums); i++ {
+		if i < len(nums)-1 && nums[i] == nums[i+1] {
+			continue
+		}
 		lnums := make([]int, len(nums))
 		copy(lnums, nums)
 		lnums = append(lnums[:i], lnums[i+1:]...)
@@ -33,6 +38,9 @@ func permute(nums []int) [][]int {
 			continue
 		}
 		for j := 0; j < len(node.nums); j++ {
+			if j < len(node.nums)-1 && node.nums[j] == node.nums[j+1] {
+				continue
+			}
 			lnums := make([]int, len(node.nums))
 			copy(lnums, node.nums)
 			lnums = append(lnums[:j], lnums[j+1:]...)
@@ -47,6 +55,5 @@ func permute(nums []int) [][]int {
 }
 
 func main() {
-	fmt.Println(permute([]int{1, 2, 3}))
-	// fmt.Println(permute([]int{-10, -9, -8, 8, 9, 10}))
+	fmt.Println(permuteUnique([]int{1, 1, 2}))
 }
